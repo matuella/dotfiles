@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+###
+# Colors
+###
+export BLUE='\033[1;34m'
+export RED='\033[1;31m'
+export YELLOW='\033[1;33m'
+export GREEN='\033[1;32m'
+export NC='\033[0m' # No Color
+
 ## Provides an interactive check to verify if the user wants to proceed with the action.
 ## 
 ## @param {string} $1 - The message to display to the user.
@@ -14,14 +23,17 @@ function interactive_check () {
     done
 }
 
+## Prints a non-interrupting script message.
 function script_info() {
     echo -e $BLUE"$1"$NC
 }
 
+## Prints a non-interrupting global message, meaning the coordinator script.
 function global_info() {
     echo -e $GREEN"$1"$NC
 }
 
+## Prints an interrupting message, requiring a key press to move on.
 function prompt_important() {
     read -p "$(echo -e $RED"$1"$NC)"
 }

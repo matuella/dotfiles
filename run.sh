@@ -4,9 +4,9 @@
 script_dir=$(dirname "${BASH_SOURCE[0]}")
 cd "$script_dir"
 
-source ./_colors.sh
 source ./_utils.sh
 source ./_config.sh
+source ./_sensitive_config.sh
 
 total_steps=$(find setup install -type f | wc -l | tr -d '[:space:]')
 current_step=0
