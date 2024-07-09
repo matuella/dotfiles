@@ -20,14 +20,13 @@ cocoapods"
 export DF_BREW_CASKS="1password
 android-studio
 google-chrome
-postman
+postman 
 visual-studio-code
 onyx
 discord
 spotify
 slack
 raycast"
-
 
 export DF_VSCODE_EXTENSIONS="tamasfe.even-better-toml
 Dart-Code.dart-code

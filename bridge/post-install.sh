@@ -21,11 +21,11 @@ if interactive_check "[manual]Do you want to perform a series of manual configur
 
     open ~
     prompt_important "[manual] MANUAL OPERATION REQUIRED: Setup Finder:
-    1. Settings -> Update "New finder windows show" to User folder.
-    2. Remove all unwanted Favorites. Add Projects and User folders to it.
+    1. Settings -> General: Update 'New finder windows show' to user folder.
+    2. Settings -> Sidebar: Update personal preferences.
     Press any key to continue"
 
-    open /Applications/System\ Settings.app
+    open /System/Applications/System\ Settings.app
     prompt_important "[manual] MANUAL OPERATION REQUIRED: Setup Settings:
     1. Displays -> Update screens dispositions: needs to be connected to it.
     2. Touch Id & Password -> Enable OS to be unlocked using Watch proximity.

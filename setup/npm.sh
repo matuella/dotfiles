@@ -27,6 +27,7 @@ if [ ! -d "$HOME/$DF_NVM_DIR" ]; then
     mkdir "$HOME/$DF_NVM_DIR"
 fi
 
+eval_brew
 script_info "[npm] Installing latest node using nvm..."
 nvm_prefix=$(brew --prefix nvm)
 [ -s "$nvm_prefix/nvm.sh" ] && \. "$nvm_prefix/nvm.sh"

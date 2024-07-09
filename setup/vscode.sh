@@ -9,6 +9,7 @@ if [ -z "${DF_VSCODE_EXTENSIONS}" ]; then
     exit 0
 fi
 
+eval_brew
 while IFS='\n' read -r extension; do
     code --install-extension $extension
 done <<< "$DF_VSCODE_EXTENSIONS"

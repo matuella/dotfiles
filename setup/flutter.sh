@@ -9,6 +9,7 @@ if [ -z "$DF_FLUTTER_DIR" ]; then
     exit 0
 fi
 
+eval_brew
 PATH="$PATH:$HOME/flutter/bin"
 
 script_info "[flutter] Checking flutter installation health..."

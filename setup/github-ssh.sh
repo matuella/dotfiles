@@ -15,6 +15,7 @@ if test -f "$HOME/.ssh/$DF_SSH_KEY_FILE"; then
     exit 0
 fi
 
+eval_brew
 ssh-keygen -t ed25519 -N "$DF_SSH_PASSPHRASE" -f ~/.ssh/$DF_SSH_KEY_FILE -C "$DF_SSH_KEY_EMAIL"
 script_info "[github-ssh] Initializing ssh-agent..."
 eval "$(ssh-agent -s)"

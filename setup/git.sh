@@ -4,6 +4,7 @@
 # Update git global config with personal info.
 ###
 
+eval_brew
 script_info "[git] Setting global config..."
 if [ -z "${DF_GIT_USERNAME}" ]; then
     script_info "[git] SKIPPED: 'DF_GIT_USERNAME' not set on config files..."
