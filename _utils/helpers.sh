@@ -45,7 +45,12 @@ function prompt_important() {
     read -p "$(echo -e $RED"$1"$NC)"
 }
 
+function eval_brew() {
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+}
+
 export -f interactive_check
 export -f script_info
 export -f global_info
 export -f prompt_important
+export -f eval_brew

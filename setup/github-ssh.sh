@@ -40,13 +40,17 @@ chmod +x $tmp_askpass
 SSH_ASKPASS_REQUIRE=force SSH_ASKPASS="$tmp_askpass" ssh-add --apple-use-keychain ~/.ssh/$DF_SSH_KEY_FILE
 rm -f "$tmp_askpass"
 
+# Add gh to known hosts to prevent asking passphrase on first clone using SSH
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+# Configure git to use the SSH key to sign commits globally
+git config --global commit.gpgsign true
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/$DF_SSH_KEY_FILE.pub
+
 pbcopy < ~/.ssh/$DF_SSH_KEY_FILE.pub
 prompt_important "[github-ssh] MANUAL OPERATION REQUIRED: Your SSH is setup and the public key is copied to your clipboard!
 Press any key to open the GitHub SSH settings page and paste the key there, with a proper title."
 
 open "https://github.com/settings/ssh/new"
 prompt_important "[github-ssh] MANUAL OPERATION REQUIRED: Once you've created it, press any key to continue."
-
-git config --global commit.gpgsign true
-git config --global gpg.format ssh
-git config --global user.signingkey ~/.ssh/$DF_SSH_KEY_FILE.pub

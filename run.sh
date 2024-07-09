@@ -25,7 +25,6 @@ scripts=(
     "setup/flutter"
     "setup/fs"
     "setup/macos"
-    "bridge/post-setup"
 )
 
 global_info "Starting full setup..."

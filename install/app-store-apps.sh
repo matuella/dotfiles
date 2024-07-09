@@ -6,6 +6,7 @@ if [ -z "${DF_APP_STORE_APPS}" ]; then
     exit 0
 fi
 
+eval_brew
 script_info "[app_store] Installing mas..." # https://github.com/mas-cli/mas
 brew install mas
 

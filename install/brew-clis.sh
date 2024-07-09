@@ -6,4 +6,7 @@ if [ -z "${DF_BREW_CLIS}" ]; then
     exit 0
 fi
 
-brew install $DF_BREW_CLIS
+eval_brew
+while IFS='\n' read -r cli; do
+    brew install $cli
+done <<< "$DF_BREW_CLIS"

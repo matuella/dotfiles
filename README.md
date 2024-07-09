@@ -13,7 +13,9 @@ As an example, this is what I usually do whenever I start on a pristine system:
 ```sh
 curl -L -O https://github.com/matuella/dotfiles/archive/main.zip
 unzip 'main.zip'
-read -p "$(echo -e "Update 'config.sh' and 'config_sensitive.sh' with desired values. Press any key once done with changes.")"
+open './dotfiles-main/config.sh' './dotfiles-main/config_sensitive.sh'
+printf "%s " Update 'config.sh' and 'config_sensitive.sh' with desired values. Press any key once done with changes.”
+read ans
 chmod +x dotfiles-main/run.sh
 dotfiles-main/run.sh
 ```

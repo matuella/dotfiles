@@ -6,4 +6,7 @@ if [ -z "${DF_BREW_CASKS}" ]; then
     exit 0
 fi
 
-brew install --cask $DF_BREW_CASKS
+eval_brew
+while IFS='\n' read -r cask; do
+    brew install --cask $cask
+done <<< "$DF_BREW_CASKS"

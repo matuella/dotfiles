@@ -33,3 +33,6 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Set the icon size of Dock items to 48 pixels for optimal size/screen-realestate
 defaults write com.apple.dock tilesize -int 48
+
+# Remove all dock default icons
+defaults write com.apple.dock persistent-apps -array
