@@ -3,7 +3,7 @@
 An abstraction to help configuring macOS, by defining installation/configuration scripts.
 
 > [!NOTE]  
-> This is a really opinionated list of script, but the abstraction might be of use for you.
+> This is a really opinionated list of scripts, but the abstraction might be of use for you.
 
 ## Running
 
