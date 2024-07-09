@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
-script_info "[FS] Creating project's folder structure..."
+###
+# Create opinionated file-system folders and files.
+###
+
+script_info "[fs] Creating project's folder structure..."
 mkdir -p ~/Projects/{External,Personal}
 
-script_info "[FS] Creating '.zshrc'..."
+script_info "[fs] Creating '.zshrc'..."
 echo "# NVM
-export NVM_DIR=~/.nvm
-source \$(brew --prefix nvm)/nvm.sh
+export NVM_DIR=~/$DF_NVM_DIR
+nvm_prefix=\$(brew --prefix nvm)
+[ -s "\$nvm_prefix/nvm.sh" ] && \. "\$nvm_prefix/nvm.sh" # This loads nvm
+[ -s "\$nvm_prefix/etc/bash_completion.d/nvm" ] && \. "\$nvm_prefix/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # Flutter
-export PATH=\"\$PATH:\$HOME/flutter/bin/:\$HOME/.pub-cache/bin\"
+export PATH=\"\$PATH:\$HOME/$DF_FLUTTER_DIR/bin/:\$HOME/.pub-cache/bin\"
 
 # Aliases and Utilities
 alias reload=\"source \$HOME/.zshrc\"
@@ -33,3 +39,4 @@ plugins=(
 )
 
 source \$ZSH/oh-my-zsh.sh" > ~/.zshrc
+script_info "[fs] Done creating '.zshrc'"

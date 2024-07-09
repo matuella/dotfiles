@@ -14,5 +14,11 @@ if interactive_check "[manual]Do you want to perform a series of manual configur
     prompt_important "[manual] MANUAL OPERATION REQUIRED: Setup Spotify by inserting the credentials! Press any key to continue"
 
     open /Applications/Raycast.app
-    prompt_important "[manual] MANUAL OPERATION REQUIRED: Setup Raycast by inserting the credentials! Press any key to continue"
+    prompt_important "[manual] MANUAL OPERATION REQUIRED: Setup Raycast! Press any key to continue"
+
+    open /Applications/Finder.app
+    prompt_important "[manual] MANUAL OPERATION REQUIRED: Setup Finder:
+    1. Remove all unwanted Favorites. Add Projects and User folders to it.
+    2. Go to Settings and update "New finder windows show" to User folder.
+    Press any key to continue"
 fi

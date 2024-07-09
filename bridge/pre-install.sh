@@ -9,7 +9,7 @@ if [[ $(command -v brew) == "" ]]; then
     script_info "[brew] Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     # Make sure that after installed, it's available for this script.
-    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
     update_brew_recipes

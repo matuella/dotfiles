@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
-script_info "[git] Setting global config..."
+###
+# Update git global config with personal info.
+###
 
-if [ -z "${GIT_USERNAME}" ]; then
-    script_info "[git] SKIPPED: 'GIT_USERNAME' not set on 'config.sh'..."
+script_info "[git] Setting global config..."
+if [ -z "${DF_GIT_USERNAME}" ]; then
+    script_info "[git] SKIPPED: 'DF_GIT_USERNAME' not set on config files..."
 else
-    git config --global user.name $GIT_USERNAME
+    git config --global user.name $DF_GIT_USERNAME
 fi
 
-if [ -z "${GIT_EMAIL}" ]; then
-    script_info "[git] SKIPPED: 'GIT_EMAIL' not set on 'config.sh'..."
+if [ -z "${DF_GIT_EMAIL}" ]; then
+    script_info "[git] SKIPPED: 'DF_GIT_EMAIL' not set on config files..."
 else
-    git config --global user.email $GIT_EMAIL
+    git config --global user.email $DF_GIT_EMAIL
 fi
 
 git config --global credential.helper osxkeychain

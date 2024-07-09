@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-script_info "[macos] Updating 'defaults' with personal preferences..."
+###
+# Update system 'defaults' with personal preferences.
+###
 
+script_info "[macos] Updating system preferences..."
 # Removing all default Dock apps
 defaults write com.apple.dock persistent-apps -array 
 

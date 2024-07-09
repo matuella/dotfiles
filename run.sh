@@ -4,39 +4,38 @@
 script_dir=$(dirname "${BASH_SOURCE[0]}")
 cd "$script_dir"
 
-source ./_utils.sh
-source ./_config.sh
-source ./_sensitive_config.sh
+source _utils/helpers.sh
+source config.sh
+source config_sensitive.sh
 
-total_steps=$(find setup install -type f | wc -l | tr -d '[:space:]')
-current_step=0
-function step_finished() {
-    current_step=$((current_step + 1))
-    global_info "Step $current_step/$total_steps done"
-}
+# Defines all scripts to be run, respecting order.
+#
+# If you want to quickly test a script, comment others from the list below.
+scripts=(
+    "bridge/pre-install"
+    "install/brew-clis"
+    "install/brew-casks"
+    "install/app-store-apps"
+    "install/manual-apps"
+    "bridge/post-install"
+    "setup/git"
+    "setup/github-ssh"
+    "setup/npm"
+    "setup/vscode"
+    "setup/flutter"
+    "setup/fs"
+    "setup/macos"
+    "bridge/post-setup"
+)
 
 global_info "Starting full setup..."
-global_info "Executing pre-install..."
-# Run the pre-install requirements for all install scripts.
-bash ./pre-install.sh
-global_info "Pre-install done!"
+total_steps=${#scripts[@]}
+source _utils/step_counter.sh $total_steps
 
-# Execute scripts in 'install' folder.
-find install -type f | while read -r script; do
-    global_info "Executing $script..."
-    bash "$script"
-    step_finished
-done
-
-# Clean-up anything that remains from out installs.
-global_info "Executing post-install..."
-bash ./post-install.sh
-global_info "Post-install done!"
-
-# Execute scripts in 'setup' folder.
-find setup -type f | while read -r script; do
-    global_info "Executing $script..."
-    bash "$script"
+for script in "${scripts[@]}"; do
+    global_info "[$script] Started"
+    bash "$script.sh"
+    global_info "[$script] Done!"
     step_finished
 done
 

@@ -25,11 +25,18 @@ function interactive_check () {
 
 ## Prints a non-interrupting script message.
 function script_info() {
+    if [ -n $DF_SILENT ] && [ "$DF_SILENT" -eq 1 ]; then
+        return 0
+    fi
     echo -e $BLUE"$1"$NC
 }
 
 ## Prints a non-interrupting global message, meaning the coordinator script.
 function global_info() {
+    if [ -n $DF_SILENT ] && [ "$DF_SILENT" -eq 1 ]; then
+        return 0
+    fi
+    
     echo -e $GREEN"$1"$NC
 }
 
