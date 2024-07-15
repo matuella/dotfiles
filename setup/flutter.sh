@@ -33,6 +33,7 @@ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -runFirstLaunch
 sudo xcodebuild -license
 xcodebuild -downloadPlatform iOS
+softwareupdate --install-rosetta --agree-to-license # Necessary only if ARM64 (Apple Silicon)
 script_info "[flutter] Xcode setup done!"
 
 script_info "[flutter] Setting up cocoapods..."
