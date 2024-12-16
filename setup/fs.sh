@@ -20,7 +20,7 @@ export PATH=\"\$PATH:\$HOME/$DF_FLUTTER_DIR/bin/:\$HOME/.pub-cache/bin\"
 # Aliases and Utilities
 alias reload=\"source \$HOME/.zshrc\"
 
-function command_exists () {
+function command_exists() {
   local cmd=\$1
   if ! command -v \$cmd &> /dev/null
   then
@@ -28,6 +28,16 @@ function command_exists () {
   fi
 
   return 0
+}
+
+function gtp() {
+  local v=\$1
+  if [ -z \"\$v\" ]; then
+      echo \"Usage: git-tag-push <tag>\"
+      return 1
+  fi
+  
+  git tag \"\$v\" && git push origin \"\$v\"
 }
 
 # Oh My ZSH
