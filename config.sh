@@ -15,7 +15,8 @@ vim
 wget
 zsh
 zsh-completions
-cocoapods"
+cocoapods
+jq"
 
 export DF_BREW_CASKS="1password
 android-studio
