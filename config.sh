@@ -23,11 +23,11 @@ android-studio
 google-chrome
 postman 
 visual-studio-code
-onyx
 discord
 spotify
 slack
-raycast"
+docker
+postico"
 
 export DF_VSCODE_EXTENSIONS="tamasfe.even-better-toml
 Dart-Code.dart-code
